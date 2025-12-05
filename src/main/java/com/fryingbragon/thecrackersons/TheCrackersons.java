@@ -1,9 +1,12 @@
 package com.fryingbragon.thecrackersons;
 
+import com.fryingbragon.thecrackersons.entity.ModEntities;
+import com.fryingbragon.thecrackersons.entity.custom.JoeEntity;
 import com.fryingbragon.thecrackersons.item.ModItems;
 import net.fabricmc.api.ModInitializer;
 import com.fryingbragon.thecrackersons.structure.ModStructures;
 
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,7 +26,9 @@ public class TheCrackersons implements ModInitializer {
 
 		LOGGER.info("Hello Fabric world! UWU");
         ModItems.registerModItems();
-
         ModStructures.registerStructures();
+        ModEntities.registerModEntities();
+
+        FabricDefaultAttributeRegistry.register(ModEntities.JOE, JoeEntity.createAttributes());
 	}
 }
